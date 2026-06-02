@@ -5,6 +5,13 @@ import { SegmentedControl, type SegmentedControlProps, type SizeVariant } from "
 const meta = {
   title: "Components/SegmentedControl",
   component: SegmentedControl,
+  parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
+  },
 } satisfies Meta<typeof SegmentedControl>
 
 export default meta
@@ -54,15 +61,6 @@ Block.args = {
 
 Block.parameters = {
   controls: { include: ["block"] },
-  docs: {
-    source: {
-      code: `<SegmentedControl block>
-  <SegmentedControl.Option />
-  <SegmentedControl.Option />
-  <SegmentedControl.Option />
-</SegmentedControl>`,
-    },
-  },
 }
 
 export const Disabled = (args: SegmentedControlProps<string>) => <Base {...args} />
@@ -73,15 +71,6 @@ Disabled.args = {
 
 Disabled.parameters = {
   controls: { include: ["disabled"] },
-  docs: {
-    source: {
-      code: `<SegmentedControl disabled>
-  <SegmentedControl.Option />
-  <SegmentedControl.Option />
-  <SegmentedControl.Option />
-</SegmentedControl>`,
-    },
-  },
 }
 
 export const DisabledOption = ({ disabled, ...restProps }: SegmentedControlProps<string>) => {
@@ -109,15 +98,6 @@ DisabledOption.args = {
 
 DisabledOption.parameters = {
   controls: { include: ["disabled"] },
-  docs: {
-    source: {
-      code: `<SegmentedControl>
-  <SegmentedControl.Option />
-  <SegmentedControl.Option />
-  <SegmentedControl.Option disabled />
-</SegmentedControl>`,
-    },
-  },
 }
 
 export const Scrollable = ({ size }: { size: SizeVariant }) => {
@@ -144,16 +124,4 @@ export const Scrollable = ({ size }: { size: SizeVariant }) => {
       </div>
     </div>
   )
-}
-
-Scrollable.parameters = {
-  docs: {
-    source: {
-      code: `<div className="flex">
-  <SegmentedControl>
-    {...}
-  </SegmentedControl>
-</div>`,
-    },
-  },
 }

@@ -6,6 +6,13 @@ import sampleMarkdown from "./sampleMarkdown.md?raw"
 const meta = {
   title: "Components/Markdown",
   component: Markdown,
+  parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
+  },
   argTypes: {
     children: { control: false },
   },
@@ -15,26 +22,6 @@ export default meta
 
 export const Base = () => <Markdown>{sampleMarkdown}</Markdown>
 
-Base.parameters = {
-  docs: {
-    source: {
-      code: `
-  <Markdown>{markdownContent}</Markdown>
-`,
-    },
-  },
-}
-
 export const Math = () => {
   return <Markdown includeMath>{sampleLatex}</Markdown>
-}
-
-Math.parameters = {
-  docs: {
-    source: {
-      code: `
-  <Markdown includeMath>{markdownWithLatex}</Markdown>
-`,
-    },
-  },
 }

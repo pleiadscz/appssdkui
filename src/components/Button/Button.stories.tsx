@@ -11,6 +11,13 @@ const meta = {
     children: "Submit",
   },
   component: Button,
+  parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
+  },
 } satisfies Meta<typeof Button>
 
 export default meta
@@ -154,11 +161,6 @@ Selected.args = {
 
 Selected.parameters = {
   controls: { include: ["selected", "variant"] },
-  docs: {
-    source: {
-      code: `<Button selected {...restProps} />`,
-    },
-  },
 }
 
 Selected.argTypes = {
@@ -187,14 +189,6 @@ export const Loading = (args: ButtonProps) => {
 Loading.args = {
   size: "xl",
   pill: true,
-}
-
-Loading.parameters = {
-  docs: {
-    source: {
-      code: `<Button loading {...restProps} />`,
-    },
-  },
 }
 
 const VARIANTS = ["soft", "solid", "outline", "ghost"] as const

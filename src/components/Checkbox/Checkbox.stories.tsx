@@ -5,6 +5,13 @@ import { Checkbox, type CheckboxProps } from "./"
 const meta = {
   title: "Components/Checkbox",
   component: Checkbox,
+  parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
+  },
   args: {
     disabled: false,
     defaultChecked: false,
@@ -35,14 +42,4 @@ export const Indeterminate = (args: CheckboxProps) => {
 
 Indeterminate.args = {
   checked: "indeterminate",
-}
-
-Indeterminate.parameters = {
-  docs: {
-    source: {
-      code: `<Checkbox
-  checked="indeterminate"
-/>`,
-    },
-  },
 }

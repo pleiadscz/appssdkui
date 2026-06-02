@@ -24,12 +24,5 @@ import { Tooltip } from "@openai/apps-sdk-ui/components/Tooltip";
 
 ### Conditionally enabled
 Sometimes a tooltip should only be disabled under certain conditions, such as when a component is disabled, providing more context as to why that is. Below is an example of how to do this by conditionally passing in `null` content.
-<Canvas of={TooltipStories.Conditional} source={{code: `<Tooltip
-  content={disabled ? "This action is disabled for reasons" : null}
->
-  <Button color="primary" size="lg" disabled={disabled}>
-    Sample button
-  </Button>
-</Tooltip>
-`}} />
+<Canvas of={TooltipStories.Conditional} />
 <Controls of={TooltipStories.Conditional} />

@@ -14,6 +14,11 @@ const meta: Meta = {
   title: "Components/Indicators",
   component: LoadingIndicator,
   parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
     layout: "centered",
   },
 } satisfies Meta<typeof LoadingIndicator>
@@ -21,14 +26,6 @@ const meta: Meta = {
 export default meta
 
 export const Base = () => <LoadingIndicator />
-
-Base.parameters = {
-  docs: {
-    source: {
-      code: `<LoadingIndicator />`,
-    },
-  },
-}
 
 export const LoadingIndicatorBase = (args: LoadingIndicatorProps) => <LoadingIndicator {...args} />
 
@@ -74,10 +71,6 @@ export const LoadingIndicatorSpeed = (args: LoadingIndicatorProps) => (
 export const CircularProgressBase = (args: CircularProgressProps) => (
   <ContinuousCircularProgress {...args} />
 )
-
-CircularProgressBase.parameters = {
-  docs: { source: { code: `<CircularProgress />` } },
-}
 
 export const CircularProgressStaticProgress = (_args: CircularProgressProps) => (
   <CircularProgress progress={25} />

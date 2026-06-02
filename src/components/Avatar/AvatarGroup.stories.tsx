@@ -5,6 +5,13 @@ import { Avatar, AvatarGroup, type AvatarGroupProps } from "./"
 const meta = {
   title: "Components/AvatarGroup",
   component: AvatarGroup,
+  parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
+  },
   args: {
     stack: "start",
     size: 42,
@@ -34,21 +41,6 @@ export const Base = (args: AvatarGroupProps) => (
     <Avatar overflowCount={5} />
   </AvatarGroup>
 )
-
-Base.parameters = {
-  docs: {
-    source: {
-      code: `
-<AvatarGroup size={42}>
-  <Avatar name="Tyler" imageUrl="https://gravatar.com/avatar/xyz" />
-  <Avatar name="Jane" color="primary" variant="solid" />
-  <Avatar name="Tech support" Icon={Robot} variant="solid" />
-  <Avatar overflowCount={5} />
-</AvatarGroup>
-`,
-    },
-  },
-}
 
 export const Direction = (args: AvatarGroupProps) => (
   <AvatarGroup {...args}>

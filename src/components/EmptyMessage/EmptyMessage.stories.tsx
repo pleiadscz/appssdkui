@@ -5,6 +5,13 @@ import { EmptyMessage } from "./EmptyMessage"
 
 export default {
   title: "Components/EmptyMessage",
+  parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
+  },
 }
 
 export const Base = () => (

@@ -6,6 +6,13 @@ import { Avatar, type AvatarProps } from "./Avatar"
 const meta = {
   title: "Components/Avatar",
   component: Avatar,
+  parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
+  },
   args: {
     name: "Jane",
     size: 48,

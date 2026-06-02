@@ -7,6 +7,13 @@ import { Alert, type AlertProps } from "./"
 const meta: Meta<AlertProps> = {
   title: "Components/Alert",
   component: Alert,
+  parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
+  },
   argTypes: {
     actions: { control: false },
   },
@@ -38,11 +45,6 @@ TitleOnly.args = {
 
 TitleOnly.parameters = {
   layout: "padded",
-  docs: {
-    source: {
-      code: `<Alert title="Your current access level limits what you can view or modify" />`,
-    },
-  },
 }
 
 export const DescriptionOnly = (args: AlertProps) => <Alert {...args} />
@@ -77,25 +79,6 @@ DismissibleActions.args = {
 
 DismissibleActions.parameters = {
   layout: "padded",
-  docs: {
-    source: {
-      code: `<Alert
-  className="items-start"
-  title="Try our new dashboard layout"
-  description="We've introduced a streamlined layout that makes using the dashboard even easier. You can switch back any time."
-  actions={(
-    <>
-      <Button color="primary" variant="soft" pill>
-        Dismiss
-      </Button>
-      <Button color="primary" variant="solid" pill>
-        Try it
-      </Button>
-    </>
-  )},
-/>`,
-    },
-  },
 }
 
 export const Dismissible = (args: AlertProps) => <Alert {...args} />
@@ -123,17 +106,6 @@ Actions.args = {
 
 Actions.parameters = {
   layout: "padded",
-  docs: {
-    source: {
-      code: `<Alert
-  variant="soft"
-  color="warning"
-  title="Password expires in 3 days"
-  description="Update it now to avoid losing access to your account."
-  actions={<Button color="primary" pill>Update password</Button>}
-/>`,
-    },
-  },
 }
 
 export const ActionsPlacement = (args: AlertProps) => <Alert {...args} />
@@ -155,24 +127,6 @@ ActionsPlacement.args = {
   ),
 }
 
-ActionsPlacement.parameters = {
-  docs: {
-    source: {
-      code: `<Alert
-  title="Our terms of service has been updated"
-  description="We've updated our terms to clarify how we handle data, billing, and user permissions. Please review and accept the latest terms to avoid impacting your service."
-  actions={(
-    <>
-      <Button color="primary" pill variant="soft">Set reminder</Button>
-      <Button color="primary" pill variant="solid">Review terms</Button>
-    </>
-  )}
-  actionsPlacement="bottom"
-/>`,
-    },
-  },
-}
-
 export const Indicator = (args: AlertProps) => <Alert {...args} />
 
 Indicator.args = {
@@ -185,39 +139,12 @@ Indicator.args = {
   indicator: <Lightbulb />,
 }
 
-Indicator.parameters = {
-  docs: {
-    source: {
-      code: `<Alert
-  indicator={<Lightbulb />}
-  description={(
-    <>
-      We're working on centralizing SCIM and invite settings. For now, setup is handled within
-      individual product settings. <TextLink href="#">Learn more</TextLink>
-    </>
-  )}
-/>`,
-    },
-  },
-}
-
 export const NoIndicator = (args: AlertProps) => <Alert {...args} />
 
 NoIndicator.args = {
   description:
     "Version 2.18.5 rolls out behind-the-scenes tweaks to caching and background sync. You don’t need to do anything—updates apply automatically the next time you open the app. Most changes are performance-related; if you notice smoother scrolling or slightly faster load times, that's why.",
   indicator: false,
-}
-
-NoIndicator.parameters = {
-  docs: {
-    source: {
-      code: `<Alert
-  indicator={false}
-  description="Version 2.18.5 rolls out behind-the-scenes tweaks to caching and background sync. You don’t need to do anything—updates apply automatically the next time you open the app. Most changes are performance-related; if you notice smoother scrolling or slightly faster load times, that's why."
-/>`,
-    },
-  },
 }
 
 const COLOR_OPTIONS = [

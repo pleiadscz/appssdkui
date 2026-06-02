@@ -6,6 +6,13 @@ import { type Option, Select, type SelectProps } from "./"
 const meta = {
   title: "Components/Select",
   component: Select,
+  parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
+  },
   args: {
     disabled: false,
     loading: false,
@@ -79,22 +86,6 @@ export const Base = (
   )
 }
 
-Base.parameters = {
-  docs: {
-    source: {
-      code: `
-<Select
-  value={fruit}
-  options={fruits}
-  onChange={handleChange}
-  placeholder="Select a fruit..."
-  variant="solid"
-/>
-  `,
-    },
-  },
-}
-
 export const Actions = () => {
   const [value, setValue] = useState<string>(() => "")
 
@@ -129,37 +120,6 @@ export const Actions = () => {
   )
 }
 
-Actions.parameters = {
-  docs: {
-    source: {
-      code: `
-<Select
-  value={value}
-  onChange={handleChange}
-  options={items}
-  placeholder="Select..."
-  align="start"
-  listMinWidth={240}
-  triggerClassName="font-semibold"
-  actions={[
-    {
-      id: "create",
-      label: "Create project",
-      Icon: Plus,
-      onSelect: () => {},
-    },
-    {
-      id: "overview",
-      label: "Organization overview",
-      Icon: Workspace,
-      onSelect: () => {},
-    },
-  ]}
-/>`,
-    },
-  },
-}
-
 export const CustomViews = () => {
   const [role, setRole] = useState<string>("reader")
 
@@ -180,57 +140,6 @@ export const CustomViews = () => {
       />
     </div>
   )
-}
-
-CustomViews.parameters = {
-  docs: {
-    source: {
-      code: `
-const RoleOptionDescription = ({ children }: { children: React.ReactNode }) => (
-  <div className="font-normal text-secondary py-px text-[0.935em] leading-[1.45]">
-    {children}
-  </div>
-);
-
-const roles: Role[] = [
-  {
-    value: "owner",
-    label: "Owner",
-    description: (
-      <RoleOptionDescription>
-        Can modify project information and manage project members
-      </RoleOptionDescription>
-    ),
-  },
-  {
-    value: "reader",
-    label: "Reader",
-    description: (
-      <RoleOptionDescription>
-        Can make API requests that read or modify data
-      </RoleOptionDescription>
-    ),
-  },
-];
-
-const CustomSelect = () => (
-  <Select
-    value={role}
-    options={roles}
-    placeholder="Select role..."
-    align="start"
-    listMinWidth={260}
-    variant="ghost"
-    size="lg"
-    onChange={({ value }) => setRole(value)}
-    TriggerStartIcon={role === "owner" ? UserLock : User}
-    triggerClassName="font-semibold"
-    optionClassName="font-semibold"
-  />
-)
-`,
-    },
-  },
 }
 
 export const GroupedOptions = () => {
@@ -257,56 +166,6 @@ export const GroupedOptions = () => {
       />
     </div>
   )
-}
-
-GroupedOptions.parameters = {
-  docs: {
-    source: {
-      code: `
-const groupedItems = [
-  {
-    label: "Models",
-    options: [
-      ...
-    ],
-    // Custom limits
-    optionsLimit: {
-      limit: 7,
-      label: "Show all models",
-    },
-  },
-  {
-    label: "Fine-tunes",
-    options: [
-      ...
-    ],
-    // Default
-    optionsLimit: {
-      limit: 100,
-      label: "Show all",
-    },
-  },
-];
-
-const GroupedOptions = () => {
-  const [value, setValue] = useState<string>("");
-
-  return (
-    <Select
-      value={value}
-      options={groupedItems}
-      onChange={(v) => setValue(v.value)}
-      variant="outline"
-      size="lg"
-      side="bottom"
-      listMinWidth={300}
-      searchPlaceholder="Select a model..."
-      clearable
-    />
-  );
-};`,
-    },
-  },
 }
 
 const MultiFruitTriggerView = ({
@@ -345,49 +204,6 @@ export const MultiSelect = () => {
       />
     </div>
   )
-}
-
-MultiSelect.parameters = {
-  docs: {
-    source: {
-      code: `
-const MultiFruitTriggerView = ({
-  values,
-  selectedAll,
-}: {
-  values: { label: string }[];
-  selectedAll: boolean;
-}) => {
-  const displayValue = selectedAll
-    ? "All fruits"
-    : values.length === 1
-    ? values[0].label
-    : \`\${values.length} fruits\`;
-
-  return <>{displayValue}</>;
-};
-
-const MultiFruitSelect = () => {
-  const [fruits, setFruits] = useState<string[]>([]);
-
-  return (
-    <Select
-      variant="solid"
-      placeholder="Select fruits..."
-      options={fruitsOptions}
-      name="fruits"
-      multiple
-      clearable
-      value={fruits}
-      onChange={(values) => {
-          setFruits(values.map(({ value }) => value));
-      }}
-      TriggerView={MultiFruitTriggerView}
-    />
-  );
-};`,
-    },
-  },
 }
 
 const fruitsOptions = [
