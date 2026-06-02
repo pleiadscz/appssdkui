@@ -9,6 +9,13 @@ type ButtonLinkProps = ComponentProps<typeof ButtonLink>
 const meta = {
   title: "Components/ButtonLink",
   component: ButtonLink,
+  parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
+  },
   args: {
     children: "View API Keys",
     color: "primary",
@@ -27,21 +34,6 @@ export const Base = (args: ButtonLinkProps) => (
     {args.children} <ArrowRight />
   </ButtonLink>
 )
-
-Base.parameters = {
-  docs: {
-    source: {
-      code: `<ButtonLink
-  color="primary"
-  href="https://platform.openai.com"
->
-  View API Keys
-  <ArrowRight />
-</ButtonLink>  
-    `,
-    },
-  },
-}
 
 export const Internal = () => (
   <ButtonLink href="/some-path" color="primary">
@@ -125,19 +117,6 @@ Disabled.args = {
 
 Disabled.parameters = {
   controls: { include: ["disabled"] },
-  docs: {
-    source: {
-      code: `<ButtonLink
-  href="https://platform.openai.com"
-  color="primary"
-  disabled
-  onClick={alertMsg}
->
-  <Key />
-  View API Keys
-</ButtonLink>`,
-    },
-  },
 }
 
 const VARIANTS = ["soft", "solid", "outline", "ghost"] as const

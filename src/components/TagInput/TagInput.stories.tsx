@@ -5,6 +5,13 @@ import { TagInput, type TagInputProps } from "./"
 const meta: Meta<TagInputProps> = {
   title: "Components/TagInput",
   component: TagInput,
+  parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
+  },
   args: {
     placeholder: "example@openai.com",
     validator: (email) => EMAIL_REGEX.test(email),

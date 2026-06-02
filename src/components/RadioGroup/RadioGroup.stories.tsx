@@ -7,6 +7,13 @@ import { RadioGroup, type RadioGroupItemProps, type RadioGroupProps } from "./"
 const meta = {
   title: "Components/RadioGroup",
   component: RadioGroup,
+  parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
+  },
   args: {
     disabled: false,
   },
@@ -77,13 +84,6 @@ GroupDisabled.args = {
 
 GroupDisabled.parameters = {
   controls: { include: ["disabled"] },
-  docs: {
-    source: {
-      code: `<RadioGroup disabled>
-  ...
-</RadioGroup>`,
-    },
-  },
 }
 
 export const ItemDisabled = (args: RadioGroupItemProps<string>) => (
@@ -107,14 +107,6 @@ ItemDisabled.args = {
 
 ItemDisabled.parameters = {
   controls: { include: ["disabled"] },
-  docs: {
-    source: {
-      code: `<RadioGroup>
-  <RadioGroup.Item disabled>
-  ...
-</RadioGroup>`,
-    },
-  },
 }
 
 export const CustomLayout = () => (

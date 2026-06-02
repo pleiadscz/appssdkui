@@ -7,6 +7,13 @@ import { Input, type InputProps } from "./"
 const meta = {
   title: "Components/Input",
   component: Input,
+  parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
+  },
   args: {
     placeholder: "Enter text...",
     allowAutofillExtensions: false,
@@ -67,17 +74,6 @@ StartAdornment.args = {
   placeholder: "Start adornment",
 }
 
-StartAdornment.parameters = {
-  docs: {
-    source: {
-      code: `<Input
-  placeholder="Start adornment"
-  startAdornment={<Search className="fill-tertiary" />}
-/>`,
-    },
-  },
-}
-
 export const EndAdornment = () => {
   const [value, setValue] = useState<string>("Clearable value")
 
@@ -106,34 +102,6 @@ export const EndAdornment = () => {
       />
     </div>
   )
-}
-
-EndAdornment.parameters = {
-  docs: {
-    source: {
-      code: `<Input
-  placeholder="Enter text..."
-  value={value}
-  onChange={(evt) => setValue(evt.target.value)}
-  pill
-  endAdornment={
-    value ? (
-      <Button
-        className="-mr-2.5"
-        color="secondary"
-        variant="soft"
-        uniform
-        size="3xs"
-        onClick={() => setValue("")}
-        pill
-      >
-        <X />
-      </Button>
-    ) : undefined
-  }
-/>`,
-    },
-  },
 }
 
 export const Disabled = (args: InputProps) => <Input {...args} />

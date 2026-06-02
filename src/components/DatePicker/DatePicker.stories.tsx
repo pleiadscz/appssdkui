@@ -6,6 +6,13 @@ import { DatePicker, type DatePickerProps } from "./DatePicker"
 const meta = {
   title: "Components/DatePicker",
   component: DatePicker,
+  parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
+  },
   argTypes: {
     value: { control: false },
     onChange: { control: false },
@@ -28,23 +35,6 @@ Base.args = {
   size: "lg",
   pill: true,
   clearable: true,
-}
-
-Base.parameters = {
-  docs: {
-    source: {
-      code: `
-<DatePicker
-  value={selectedDate}
-  onChange={(nextDate) => {
-    setSelectedDate(nextDate);
-  }}
-  clearable
-  pill
-/>
-`,
-    },
-  },
 }
 
 export const Limits = (args: DatePickerProps) => {
@@ -70,27 +60,6 @@ Limits.args = {
   triggerShowIcon: true,
 }
 
-Limits.parameters = {
-  docs: {
-    source: {
-      code: `
-const today = DateTime.local()
-const minDate = today.minus({ days: 30 }).startOf("day")
-const maxDate = today.plus({ days: 30 }).endOf("day")
-const [selectedDate, setSelectedDate] = useState<DateTime | null>(today)
-
-return (
-  <DatePicker
-    ...
-    min={minDate}
-    max={maxDate}
-  />
-)
-`,
-    },
-  },
-}
-
 export const WithoutIcon = (args: DatePickerProps) => {
   const [selectedDate, setSelectedDate] = useState<DateTime | null>(null)
 
@@ -103,20 +72,6 @@ WithoutIcon.args = {
   placeholder: "Choose a date",
 }
 
-WithoutIcon.parameters = {
-  docs: {
-    source: {
-      code: `
-<DatePicker
-  ...
-  triggerShowIcon={false}
-  placeholder="Choose a date"
-/>
-`,
-    },
-  },
-}
-
 export const Disabled = (args: DatePickerProps) => {
   const [selectedDate, setSelectedDate] = useState<DateTime | null>(DateTime.local())
 
@@ -126,17 +81,4 @@ export const Disabled = (args: DatePickerProps) => {
 Disabled.args = {
   size: "md",
   disabled: true,
-}
-
-Disabled.parameters = {
-  docs: {
-    source: {
-      code: `
-<DatePicker
-  ...
-  disabled
-/>
-`,
-    },
-  },
 }

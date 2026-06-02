@@ -16,6 +16,13 @@ import type { MenuCheckboxItemProps, MenuRadioGroupProps } from "./Menu"
 
 export default {
   title: "Components/Menu",
+  parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
+  },
 }
 
 export const Base = () => (
@@ -69,19 +76,6 @@ export const NaturalSizing = () => (
   </Menu>
 )
 
-NaturalSizing.parameters = {
-  docs: {
-    source: {
-      code: `<Menu.Content minWidth="auto">
-  <Menu.Item onSelect={handleSelect}>
-    <Functions height={16} width={16} /> Function
-  </Menu.Item>
-  ...
-</Menu.Content>`,
-    },
-  },
-}
-
 export const ItemActions = () => (
   <Menu>
     <Menu.Trigger>
@@ -117,27 +111,6 @@ export const ItemActions = () => (
     </Menu.Content>
   </Menu>
 )
-
-ItemActions.parameters = {
-  docs: {
-    source: {
-      code: `<Menu.Content>
-  <Menu.Item onSelect={handleSelect}>
-    <span className="flex-1 truncate">Sample thread title</span>
-    <Menu.ItemActions>
-      <Menu.ItemAction>
-        <Edit />
-      </Menu.ItemAction>
-      <Menu.ItemAction>
-        <Delete />
-      </Menu.ItemAction>
-    </Menu.ItemActions>
-  </Menu.Item>
-  ...
-</Menu.Content>`,
-    },
-  },
-}
 
 export const WithSubmenu = () => (
   <Menu>
@@ -229,54 +202,6 @@ WithCheckboxes.argTypes = {
 
 WithCheckboxes.parameters = {
   controls: { include: ["indicatorPosition", "indicatorVariant"] },
-  docs: {
-    source: {
-      code: `const [settings, setSettings] = useState({
-  showGrid: true,
-  showLabels: false,
-  enableShadows: false,
-})
-
-return (
-  <Menu>
-    <Menu.Trigger>
-      <Button variant="ghost" color="primary">
-        Checkbox menu <ChevronDown />
-      </Button>
-    </Menu.Trigger>
-    <Menu.Content minWidth={200}>
-      <Menu.CheckboxItem
-        checked={settings.showGrid}
-        onCheckedChange={(checked) => setSettings((s) => ({ ...s, showGrid: checked }))}
-        onSelect={(evt) => evt.preventDefault()}
-        indicatorPosition="end"
-        indicatorVariant="filled"
-      >
-        Show grid lines
-      </Menu.CheckboxItem>
-      <Menu.CheckboxItem
-        checked={settings.showLabels}
-        onCheckedChange={(checked) => setSettings((s) => ({ ...s, showLabels: checked }))}
-        onSelect={(evt) => evt.preventDefault()}
-        indicatorPosition="end"
-        indicatorVariant="filled"
-      >
-        Display labels
-      </Menu.CheckboxItem>
-      <Menu.CheckboxItem
-        checked={settings.enableShadows}
-        onCheckedChange={(checked) => setSettings((s) => ({ ...s, enableShadows: checked }))}
-        onSelect={(evt) => evt.preventDefault()}
-        indicatorPosition="end"
-        indicatorVariant="filled"
-      >
-        Enable shadows
-      </Menu.CheckboxItem>
-    </Menu.Content>
-  </Menu>
-)`,
-    },
-  },
 }
 
 export const WithRadioItems = (args: MenuRadioGroupProps<string>) => {
@@ -318,28 +243,4 @@ WithRadioItems.argTypes = {
 
 WithRadioItems.parameters = {
   controls: { include: ["indicatorPosition"] },
-  docs: {
-    source: {
-      code: `<Menu>
-  <Menu.Trigger>
-    <Button color="primary" variant="ghost">
-      Radio menu <ChevronDown />
-    </Button>
-  </Menu.Trigger>
-  <Menu.Content align="start" minWidth="auto" width="auto">
-    <Menu.RadioGroup
-      indicatorPosition="end"
-      value={value}
-      onChange={setValue}
-    >
-      <Menu.RadioItem value="any">Any time</Menu.RadioItem>
-      <Menu.RadioItem value="today">Today</Menu.RadioItem>
-      <Menu.RadioItem value="last7d">Last 7 days</Menu.RadioItem>
-      <Menu.RadioItem value="last30d">Last 30 days</Menu.RadioItem>
-      <Menu.RadioItem value="last3m">Last 3 months</Menu.RadioItem>
-    </Menu.RadioGroup>
-  </Menu.Content>
-</Menu>`,
-    },
-  },
 }

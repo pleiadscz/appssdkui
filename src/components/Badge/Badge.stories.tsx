@@ -7,6 +7,13 @@ import { Badge, type BadgeProps } from "./"
 const meta = {
   title: "Components/Badge",
   component: Badge,
+  parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
+  },
   args: {
     children: "New",
     color: "success",
@@ -57,16 +64,6 @@ export const Icon = (args: BadgeProps) => (
 Icon.args = {
   size: "lg",
   color: "warning",
-}
-
-Icon.parameters = {
-  docs: {
-    source: {
-      code: `<Badge color="warning" size="lg">
-  <Beta /> Beta
-</Badge>`,
-    },
-  },
 }
 
 export const Loading = (args: BadgeProps) => (

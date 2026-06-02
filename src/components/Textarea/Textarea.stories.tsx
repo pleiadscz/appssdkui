@@ -5,6 +5,13 @@ import { Textarea, type TextareaProps } from "./"
 const meta = {
   title: "Components/Textarea",
   component: Textarea,
+  parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
+  },
   args: {
     placeholder: "Enter text...",
     allowAutofillExtensions: false,

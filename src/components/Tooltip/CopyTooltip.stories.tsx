@@ -4,6 +4,13 @@ import { CopyTooltip, type CopyTooltipProps, Tooltip } from "./"
 const meta = {
   title: "Components/CopyTooltip",
   component: CopyTooltip,
+  parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
+  },
   args: {
     copyValue: "Very cool content to copy",
   },

@@ -5,6 +5,13 @@ import { Switch, type SwitchProps } from "./"
 const meta: Meta<SwitchProps> = {
   title: "Components/Switch",
   component: Switch,
+  parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
+  },
   argTypes: {
     label: { control: "text" },
     onCheckedChange: { control: false },
@@ -51,14 +58,4 @@ DefaultChecked.args = {
 export const Controlled = () => {
   const [checked, setChecked] = useState(false)
   return <Switch checked={checked} onCheckedChange={setChecked} />
-}
-
-Controlled.parameters = {
-  docs: {
-    source: {
-      code: `const [checked, setChecked] = useState(false)
-
-<Switch checked={checked} onCheckedChange={setChecked} />`,
-    },
-  },
 }

@@ -8,7 +8,14 @@ type CodeBlockProps = ComponentProps<typeof CodeBlock>
 const meta = {
   title: "Components/CodeBlock",
   component: CodeBlock,
-  parameters: { layout: "padded" },
+  parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
+    layout: "padded",
+  },
   argTypes: {
     className: { control: false },
     children: { control: false },

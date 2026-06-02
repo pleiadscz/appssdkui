@@ -5,6 +5,13 @@ import { Tooltip, type TooltipProps } from "../Tooltip"
 const meta = {
   title: "Components/Tooltip",
   component: Tooltip,
+  parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
+  },
   args: {
     content: "This is additional context that appears when the trigger is hovered or focused",
     compact: false,

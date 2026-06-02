@@ -15,13 +15,7 @@ import * as CodeBlockStories from './CodeBlock.stories';
 import { CodeBlock } from "@openai/apps-sdk-ui/components/CodeBlock";
 ```
 
-<Canvas of={CodeBlockStories.Base} source={{code: `
-const codeSnippet = '...'
-
-return (
-  <CodeBlock language="javascript">{codeSnippet}</CodeBlock>
-)
-`}} />
+<Canvas of={CodeBlockStories.Base} />
 
 ## Reference
 <ArgTypes of={CodeBlockStories.Base} />
@@ -37,28 +31,7 @@ Custom code blocks can be created by using `<CodeBlockBase>` component compositi
 
 In this example, a header is being added above the code block with a bespoke `<CopyButton>`.
 
-<Canvas of={CodeBlockStories.CustomBlock} source={{code: `
-const codeSnippet = '...'
-
-return (
-  <CodeBlockBase>
-    <div className="flex items-center justify-between bg-(--alpha-02) border-b border-b-(--alpha-06) px-4 py-1">
-      <span className="text-sm font-semibold text-secondary">typescript</span>
-      <CopyButton
-        variant="ghost"
-        color="secondary"
-        size="md"
-        uniform
-        copyValue={codeSnippet}
-        className="-mr-2"
-      />
-    </div>
-    <CodeBlockBase.Code language="typescript">
-      {codeSnippet}
-    </CodeBlockBase.Code>
-  </CodeBlockBase>
-)
-`}} />
+<Canvas of={CodeBlockStories.CustomBlock} />
 
 ### Supported languages
 

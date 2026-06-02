@@ -8,6 +8,13 @@ import { type DateRange, type DateRangeShortcut } from "./types"
 const meta = {
   title: "Components/DateRangePicker",
   component: DateRangePicker,
+  parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
+  },
   argTypes: {
     value: { control: false },
     onChange: { control: false },
@@ -45,24 +52,6 @@ Base.args = {
   clearable: true,
 }
 
-Base.parameters = {
-  docs: {
-    source: {
-      code: `
-<DateRangePicker
-  value={selectedDateRange}
-  onChange={(nextDateRange) => {
-    setSelectedDateRange(nextDateRange);
-  }}
-  shortcuts={dayShortcuts}
-  clearable
-  pill
-/>
-`,
-    },
-  },
-}
-
 export const Limits = (args: DateRangePickerProps) => {
   const today = DateTime.local()
   const minDate = today.minus({ days: 30 }).startOf("day")
@@ -86,29 +75,6 @@ Limits.args = {
   size: "lg",
   pill: true,
   triggerShowIcon: true,
-}
-
-Limits.parameters = {
-  docs: {
-    source: {
-      code: `
-const today = DateTime.local()
-const minDate = today.minus({ days: 120 }).startOf("day")
-const maxDate = today.endOf("day")
-const [selectedDateRange, setSelectedDateRange] = useState<DateRange | null>(() =>
-  getMonthStartAndEnd(today, { min: minDate, max: maxDate }),
-)
-
-return (
-  <DateRangePicker
-    ...
-    min={minDate}
-    max={maxDate}
-  />
-)
-`,
-    },
-  },
 }
 
 const dayShortcuts: DateRangeShortcut[] = [
@@ -161,19 +127,6 @@ Shortcuts.args = {
   clearable: true,
 }
 
-Shortcuts.parameters = {
-  docs: {
-    source: {
-      code: `
-<DateRangePicker
-  ...
-  shortcuts={dayShortcuts}
-/>
-`,
-    },
-  },
-}
-
 export const MonthStepper = (args: DateRangePickerProps) => {
   const today = DateTime.local()
   const maxDate = today.endOf("day")
@@ -196,17 +149,4 @@ MonthStepper.args = {
   clearable: true,
   pill: true,
   triggerStepperUnit: "month",
-}
-
-MonthStepper.parameters = {
-  docs: {
-    source: {
-      code: `
-<DateRangePicker
-  ...
-  triggerStepperUnit: "month",
-/>
-`,
-    },
-  },
 }

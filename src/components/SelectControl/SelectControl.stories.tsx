@@ -7,6 +7,13 @@ import { SelectControl, type SelectControlProps } from "./"
 const meta = {
   title: "Components/SelectControl",
   component: SelectControl,
+  parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
+  },
   argTypes: {
     opticallyAlign: {
       control: { type: "inline-radio" },
@@ -51,37 +58,6 @@ Base.args = {
   variant: "outline",
   pill: true,
   size: "md",
-}
-
-Base.parameters = {
-  docs: {
-    source: {
-      code: `
-const [value, setValue] = useState("")
-const placeholder = "Select date..."
-
-return (
-  // Use any floating UI, like <Menu>, <Popover>, etc.
-  <Menu>
-    <Menu.Trigger>
-      <SelectControl
-        selected={!!value}
-        onClearClick={() => setValue("")}
-        StartIcon={CalendarAlt}
-      >
-        {value || placeholder}
-      </SelectControl>
-    </Menu.Trigger>
-    <Menu.Content>
-      <Menu.RadioGroup value={value} onChange={setValue}>
-        ...
-      </Menu.RadioGroup>
-    </Menu.Content>
-  </Menu>
-)
-`,
-    },
-  },
 }
 
 const VARIANT_OPTIONS = ["soft", "outline", "ghost"] as const
@@ -212,18 +188,6 @@ export const StartIcon = (args: SelectControlProps) => (
   </SelectControl>
 )
 
-StartIcon.parameters = {
-  docs: {
-    source: {
-      code: `
-<SelectControl StartIcon={CalendarAlt}>
-  Reader
-</SelectControl>  
-  `,
-    },
-  },
-}
-
 export const Disabled = (args: SelectControlProps) => (
   <SelectControl {...args} StartIcon={User}>
     Reader
@@ -238,15 +202,6 @@ Disabled.args = {
 
 Disabled.parameters = {
   controls: { include: ["disabled"] },
-  docs: {
-    source: {
-      code: `
-<SelectControl disabled>
-  Reader
-</SelectControl>  
-  `,
-    },
-  },
 }
 
 export const Selected = (args: SelectControlProps) => (
@@ -285,15 +240,6 @@ Invalid.args = {
 
 Invalid.parameters = {
   controls: { include: ["invalid"] },
-  docs: {
-    source: {
-      code: `
-<SelectControl invalid>
-  Pineapple on pizza
-</SelectControl>  
-  `,
-    },
-  },
 }
 
 export const DropdownIcon = (args: SelectControlProps) => (

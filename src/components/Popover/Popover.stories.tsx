@@ -6,6 +6,13 @@ import { usePopoverController } from "./usePopoverController"
 
 export default {
   title: "Components/Popover",
+  parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
+  },
 }
 
 export const Base = () => (
@@ -46,21 +53,6 @@ export const NaturalSizing = () => (
     </Popover.Content>
   </Popover>
 )
-
-NaturalSizing.parameters = {
-  docs: {
-    source: {
-      code: `<Popover>
-  <Popover.Trigger>
-    ...
-  </Popover.Trigger>
-  <Popover.Content minWidth="auto" side="top">
-    ...
-  </Popover.Content>
-</Popover>`,
-    },
-  },
-}
 
 export const Hover = () => (
   <div className="flex flex-col gap-4">
@@ -107,22 +99,6 @@ const InteractiveContent = () => {
   )
 }
 
-Hover.parameters = {
-  docs: {
-    source: {
-      code: `<Popover showOnHover>
-  <Popover.Trigger>
-    ...
-  </Popover.Trigger>
-  <Popover.Content>
-    ...
-  </Popover.Content>
-</Popover>  
-  `,
-    },
-  },
-}
-
 export const Controller = () => {
   return (
     <Popover>
@@ -159,51 +135,6 @@ const ControllerForm = () => {
       <ActionBar loading={submitting} />
     </form>
   )
-}
-
-Controller.parameters = {
-  docs: {
-    source: {
-      code: `
-const Example = () => {
-  return (
-    <Popover>
-      <Popover.Trigger>
-        <Button color="primary">Generate</Button>
-      </Popover.Trigger>
-      <Popover.Content side="right" surface="glass">
-        <ControllerForm />
-      </Popover.Content>
-    </Popover>
-  )
-}
-
-const ControllerForm = () => {
-  const [value, setValue] = useState("")
-  const [submitting, setSubmitting] = useState(false)
-  const { shake, close } = usePopoverController()
-
-  const handleSubmit = (evt: FormEvent) => {
-    evt.preventDefault()
-
-    if (!value) {
-      shake()
-      return
-    }
-
-    setSubmitting(true)
-    setTimeout(close, 2000)
-  }
-  return (
-    <form onSubmit={handleSubmit}>
-      <Textarea value={value} onChange={setValue} />
-      <ActionBar loading={submitting} />
-    </form>
-  )
-}
-  `,
-    },
-  },
 }
 
 const Textarea = ({

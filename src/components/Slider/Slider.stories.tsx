@@ -6,6 +6,13 @@ import { Slider, type SliderProps } from "./"
 const meta = {
   title: "Components/Slider",
   component: Slider,
+  parameters: {
+    docs: {
+      source: {
+        type: "code",
+      },
+    },
+  },
   args: {
     label: "Example field",
     min: 0,
