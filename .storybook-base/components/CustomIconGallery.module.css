@@ -1,0 +1,110 @@
+.StickyContainer {
+  position: sticky;
+  top: 0;
+  padding-top: 14px;
+  margin-top: -10px;
+  background: var(--color-surface);
+  z-index: 10;
+}
+
+.Container {
+  position: relative;
+}
+
+.Input {
+  display: block;
+  width: 100%;
+  padding: 12px 20px 12px 44px;
+  border: 1px solid var(--alpha-10);
+  border-radius: var(--radius-md);
+  margin: 0 0 24px;
+  background: var(--color-surface);
+  font-size: 15px;
+
+  &::placeholder {
+    color: var(--color-text-tertiary);
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.InputIcon {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  width: 18px;
+  height: 18px;
+  margin-top: -9px;
+  color: var(--color-text-tertiary);
+  pointer-events: none;
+}
+
+.EmptyMessage {
+  padding-top: 30px;
+}
+
+.SearchTerm {
+  font-weight: var(--font-weight-semibold);
+}
+
+.IconGallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 16px;
+  padding: 8px 0;
+}
+
+.IconItemContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: var(--radius-md);
+
+  &:hover {
+    background-color: var(--alpha-5);
+  }
+}
+
+.IconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+}
+
+.IconDisplay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.IconLarge {
+  width: 48px;
+  height: 48px;
+  font-size: 48px;
+  flex-shrink: 0;
+}
+
+.IconName {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-align: center;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+.IconItemContainer:hover .IconName {
+  color: var(--color-text-primary);
+}
